@@ -106,7 +106,6 @@
 	})
 
 	gulp.task("build", ["cleanup", "copy-libs", "copy-css", "copy-localization", "jade", "componentJade", "minify", "less"]);
-	gulp.task("dokku", ["cleanup", "copy-libs", "copy-css", "copy-localization", "jade", "componentJade", "minify", "less"]);
 	gulp.task("default", ["copy-libs", "copy-css", "copy-localization", "watch"]);
 
 	gulp.task("watch", function(){
