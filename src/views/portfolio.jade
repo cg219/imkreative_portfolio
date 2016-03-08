@@ -1,0 +1,12 @@
+section.portfolio-section
+	ul
+		li.entry(ng-repeat="entry in entries" ng-click="gotoLink(entry.fields.url)")
+			img(src="{{getAsset(entry.fields.thumbnail.sys.id)}}")
+			.info
+				.info-background
+				.info-text
+					p.title {{entry.fields.name}}
+					p.client {{entry.fields.client}}
+					p.agency {{entry.fields.agency}}
+					p.role {{entry.fields.role}}
+					p.tech {{entry.fields.technology}}

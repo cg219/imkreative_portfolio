@@ -1,0 +1,17 @@
+
+<section class="portfolio-section">
+  <ul>
+    <li ng-repeat="entry in entries" ng-click="gotoLink(entry.fields.url)" class="entry"><img src="{{getAsset(entry.fields.thumbnail.sys.id)}}"/>
+      <div class="info">
+        <div class="info-background"></div>
+        <div class="info-text">
+          <p class="title">{{entry.fields.name}}</p>
+          <p class="client">{{entry.fields.client}}</p>
+          <p class="agency">{{entry.fields.agency}}</p>
+          <p class="role">{{entry.fields.role}}</p>
+          <p class="tech">{{entry.fields.technology}}</p>
+        </div>
+      </div>
+    </li>
+  </ul>
+</section>

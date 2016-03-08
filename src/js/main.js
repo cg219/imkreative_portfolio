@@ -7,6 +7,7 @@ kreative.config(["$locationProvider", "$stateProvider", "$urlRouterProvider", fu
 		.state("home", {
 			url: "/",
 			controller: "Portfolio",
-			params: {}
+			params: {},
+			templateUrl: "portfolio.html"
 		})
 }])
