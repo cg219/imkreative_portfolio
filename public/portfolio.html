@@ -5,11 +5,9 @@
       <div class="info">
         <div class="info-background"></div>
         <div class="info-text">
-          <p class="title">{{entry.fields.name}}</p>
-          <p class="client">{{entry.fields.client}}</p>
-          <p class="agency">{{entry.fields.agency}}</p>
-          <p class="role">{{entry.fields.role}}</p>
-          <p class="tech">{{entry.fields.technology}}</p>
+          <p class="title">{{entry.fields.name}} &mdash; <span>{{entry.fields.client}}</span></p>
+          <p class="agency"> <span ng-repeat="role in entry.fields.role">{{role}} {{$last ? "" : "/"}} </span>[at] {{entry.fields.agency}}</p>
+          <p class="tech"><span ng-repeat="tech in entry.fields.technology">{{tech}}</span></p>
         </div>
       </div>
     </li>

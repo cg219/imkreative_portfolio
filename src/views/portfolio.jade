@@ -5,8 +5,10 @@ section.portfolio-section
 			.info
 				.info-background
 				.info-text
-					p.title {{entry.fields.name}}
-					p.client {{entry.fields.client}}
-					p.agency {{entry.fields.agency}}
-					p.role {{entry.fields.role}}
-					p.tech {{entry.fields.technology}}
+					p.title {{entry.fields.name}} &mdash; 
+						span {{entry.fields.client}}
+					p.agency 
+						span(ng-repeat="role in entry.fields.role") {{role}} {{$last ? "" : "/"}} 
+						[at] {{entry.fields.agency}}
+					p.tech
+						span(ng-repeat="tech in entry.fields.technology") {{tech}}

@@ -47,15 +47,38 @@
 				display: block;
 				position: absolute;
 				opacity: 0;
-				top: 0;
+				top: 25%;
 				left: 0;
 				width: 100%;
 				height: 100%;
+				color: @black;
+				box-sizing: border-box;
+				padding: 10px;
 				-webkit-transition: opacity .2s .1s;
 				   -moz-transition: opacity .2s .1s;
 					-ms-transition: opacity .2s .1s;
 					 -o-transition: opacity .2s .1s;
 						transition: opacity .2s .1s;
+
+				.title{
+					font-size: 26px;
+					line-height: 26px;
+					margin: 0;
+
+					span{
+						font-size: 16px;
+						font-weight: 600;
+					}
+				}
+
+				.tech{
+					font-size: 16px;
+
+					span{
+						display: block;
+						font-size: 12px;
+					}
+				}
 			}
 
 			.info-background{
@@ -72,11 +95,11 @@
 					-ms-transform: scale(.2) rotate(60deg);
 					 -o-transform: scale(.2) rotate(60deg);
 						transform: scale(.2) rotate(60deg);
-				-webkit-transition: -webkit-transform .2s, opacity .2s .05s;
-				   -moz-transition: -moz-transform .2s, opacity .2s .05s;
-					-ms-transition: -ms-transform .2s, opacity .2s .05s;
-					 -o-transition: --o-transform .2s, opacity .2s .05s;
-						transition: transform .2s, opacity .2s .05s;
+				-webkit-transition: -webkit-transform .3s, opacity .1s .05s;
+				   -moz-transition: -moz-transform .3s, opacity .1s .05s;
+					-ms-transition: -ms-transform .3s, opacity .1s .05s;
+					 -o-transition: --o-transform .3s, opacity .1s .05s;
+						transition: transform .3s, opacity .1s .05s;
 			}
 		}
 
@@ -97,11 +120,11 @@
 			}
 
 			img{
-				-webkit-transform: scale(1.2);
-				   -moz-transform: scale(1.2);
-					-ms-transform: scale(1.2);
-					 -o-transform: scale(1.2);
-						transform: scale(1.2);
+				-webkit-transform: scale(1.3);
+				   -moz-transform: scale(1.3);
+					-ms-transform: scale(1.3);
+					 -o-transform: scale(1.3);
+						transform: scale(1.3);
 			}
 		}
 
