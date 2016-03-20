@@ -1,4 +1,9 @@
 
+<nav class="navigation">
+  <ul>
+    <li ng-repeat="cat in categories"><a ng-click="showCategory(cat.fields.name.toLowerCase())">{{cat.fields.name}}</a></li>
+  </ul>
+</nav>
 <section class="portfolio-section">
   <ul>
     <li ng-repeat="entry in entries" ng-click="gotoLink(entry.fields.url)" class="entry"><img src="{{getAsset(entry.fields.thumbnail.sys.id)}}"/>
