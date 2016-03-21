@@ -1,15 +1,14 @@
 function Portfolio(scope, state, location, params, http, timeout){
-	console.log("Portfolio");
 	var self = this;
 
-	this.entries = [];
-	this.assets;
-	this.categories = [];
+	self.entries = [];
+	self.assets;
+	self.categories = [];
+	self.scope = scope;
 
 	http.get("/api/cats")
 		.then(function(results){
 			self.categories = scope.categories = results.data.items;
-			console.log(self.categories);
 		})
 
 	timeout(function(){
@@ -17,7 +16,6 @@ function Portfolio(scope, state, location, params, http, timeout){
 			.then(function(results){
 				self.entries = scope.entries = results.data.items;
 				self.assets = scope.assets = results.data.includes.Asset;
-				console.log(self.entries[0]);
 			})
 	}, 50)
 	
@@ -25,6 +23,7 @@ function Portfolio(scope, state, location, params, http, timeout){
 	scope.gotoLink = this.GotoLink;
 	scope.showCategory = this.ShowCategory;
 	scope.console = console;
+	scope.currentCategory = "";
 }
 
 Portfolio.prototype.GetAsset = function(id) {
@@ -39,12 +38,12 @@ Portfolio.prototype.GetAsset = function(id) {
 };
 
 Portfolio.prototype.GotoLink = function(link) {
-	console.log(link);
 	window.open(link)
 };
 
 Portfolio.prototype.ShowCategory = function(cat) {
-	console.log(cat);
+	this.currentCategory = cat;
+	console.log(this);
 };
 
 kreative.controller("Portfolio", ["$scope", "$state", "$location", "$stateParams", "$http", "$timeout", function(scope, state, loc, params, http, timeout){

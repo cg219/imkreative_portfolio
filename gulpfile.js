@@ -15,7 +15,7 @@
 			less : "./src/less/*.less",
 			js : ["./src/js/main.js", "./src/js/services/*.js", "./src/js/directives/*.js", "./src/js/controllers/*.js"],
 			cssVendor: ["./src/less/vendor/*.css"],
-			jsVendor : ["./bower_components/jquery/dist/jquery.min.js", "./bower_components/angular/angular.min.js", "./bower_components/angular-ui-router/release/angular-ui-router.min.js", "./bower_components/angular-sanitize/angular-sanitize.min.js", "./bower_components/angular-resource/angular-resource.min.js", "./bower_components/angular-animate/angular-animate.min.js"],
+			jsVendor : ["./bower_components/jquery/dist/jquery.js", "./bower_components/angular/angular.js", "./bower_components/angular-ui-router/release/angular-ui-router.js", "./bower_components/angular-sanitize/angular-sanitize.js", "./bower_components/angular-resource/angular-resource.js", "./bower_components/angular-animate/angular-animate.js"],
 			localization: "./src/localization/*"
 		},
 		dest : {

@@ -1,18 +1,24 @@
-nav.navigation
-	ul
-		li(ng-repeat="cat in categories")
-			a(ng-click="showCategory(cat.fields.name.toLowerCase())") {{cat.fields.name}}
-section.portfolio-section
-	ul
-		li.entry(ng-repeat="entry in entries" ng-click="gotoLink(entry.fields.url)")
-			img(src="{{getAsset(entry.fields.thumbnail.sys.id)}}")
-			.info
-				.info-background
-				.info-text
-					p.title {{entry.fields.name}} &mdash; 
-						span {{entry.fields.client}}
-					p.agency 
-						span(ng-repeat="role in entry.fields.role") {{role}} {{$last ? "" : "/"}} 
-						| [at] {{entry.fields.agency}}
-					p.tech
-						span(ng-repeat="tech in entry.fields.technology") {{tech}}
+.wrapper
+	header
+		img.logo(src="images/logo.png")
+		nav.navigation
+			ul
+				li.title: a(href="mailto:mente@imkreative.com") Contact
+				li.title Projects
+				li: a(ng-click="showCategory('')") All
+				li(ng-repeat="cat in categories")
+					a(ng-click="$parent.showCategory(cat.fields.name)") {{cat.fields.name}}
+	section.portfolio-section
+		ul
+			li.entry(ng-repeat="entry in entries | filter: currentCategory" ng-click="gotoLink(entry.fields.url)")
+				img(src="{{getAsset(entry.fields.thumbnail.sys.id)}}")
+				.info
+					.info-background
+					.info-text
+						p.title {{entry.fields.name}} &mdash; 
+							span {{entry.fields.client}}
+						p.agency 
+							span(ng-repeat="role in entry.fields.role") {{role}} {{$last ? "" : "/"}} 
+							| [at] {{entry.fields.agency}}
+						p.tech
+							span(ng-repeat="tech in entry.fields.technology") {{tech}}

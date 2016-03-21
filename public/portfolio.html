@@ -1,20 +1,27 @@
 
-<nav class="navigation">
-  <ul>
-    <li ng-repeat="cat in categories"><a ng-click="showCategory(cat.fields.name.toLowerCase())">{{cat.fields.name}}</a></li>
-  </ul>
-</nav>
-<section class="portfolio-section">
-  <ul>
-    <li ng-repeat="entry in entries" ng-click="gotoLink(entry.fields.url)" class="entry"><img src="{{getAsset(entry.fields.thumbnail.sys.id)}}"/>
-      <div class="info">
-        <div class="info-background"></div>
-        <div class="info-text">
-          <p class="title">{{entry.fields.name}} &mdash; <span>{{entry.fields.client}}</span></p>
-          <p class="agency"> <span ng-repeat="role in entry.fields.role">{{role}} {{$last ? "" : "/"}} </span>[at] {{entry.fields.agency}}</p>
-          <p class="tech"><span ng-repeat="tech in entry.fields.technology">{{tech}}</span></p>
+<div class="wrapper">
+  <header><img src="images/logo.png" class="logo"/>
+    <nav class="navigation">
+      <ul>
+        <li class="title"><a href="mailto:mente@imkreative.com">Contact</a></li>
+        <li class="title">Projects</li>
+        <li><a ng-click="showCategory('')">All</a></li>
+        <li ng-repeat="cat in categories"><a ng-click="$parent.showCategory(cat.fields.name)">{{cat.fields.name}}</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section class="portfolio-section">
+    <ul>
+      <li ng-repeat="entry in entries | filter: currentCategory" ng-click="gotoLink(entry.fields.url)" class="entry"><img src="{{getAsset(entry.fields.thumbnail.sys.id)}}"/>
+        <div class="info">
+          <div class="info-background"></div>
+          <div class="info-text">
+            <p class="title">{{entry.fields.name}} &mdash; <span>{{entry.fields.client}}</span></p>
+            <p class="agency"> <span ng-repeat="role in entry.fields.role">{{role}} {{$last ? "" : "/"}} </span>[at] {{entry.fields.agency}}</p>
+            <p class="tech"><span ng-repeat="tech in entry.fields.technology">{{tech}}</span></p>
+          </div>
         </div>
-      </div>
-    </li>
-  </ul>
-</section>
+      </li>
+    </ul>
+  </section>
+</div>
