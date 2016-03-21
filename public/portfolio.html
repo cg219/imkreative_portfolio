@@ -19,6 +19,7 @@
             <p class="title">{{entry.fields.name}} &mdash; <span>{{entry.fields.client}}</span></p>
             <p class="agency"> <span ng-repeat="role in entry.fields.role">{{role}} {{$last ? "" : "/"}} </span>[at] {{entry.fields.agency}}</p>
             <p class="tech"><span ng-repeat="tech in entry.fields.technology">{{tech}}</span></p>
+            <p ng-class="{offline: entry.fields.active == false}" class="active">{{entry.fields.active == true ? "Online" : "Offline"}}</p>
           </div>
         </div>
       </li>

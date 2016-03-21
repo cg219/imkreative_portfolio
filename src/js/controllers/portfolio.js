@@ -38,7 +38,9 @@ Portfolio.prototype.GetAsset = function(id) {
 };
 
 Portfolio.prototype.GotoLink = function(link) {
-	window.open(link)
+	if(link){
+		window.open(link);
+	}
 };
 
 Portfolio.prototype.ShowCategory = function(cat) {
