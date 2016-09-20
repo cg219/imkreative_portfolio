@@ -9,6 +9,7 @@
     "dotenv": "^2.0.0",
     "errorhandler": "^1.4.3",
     "express": "^4.13.4",
+    "ghost": "^0.11.0",
     "ioredis": "^1.15.1",
     "nodemon": "^1.8.1"
   },

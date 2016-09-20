@@ -6,6 +6,8 @@ var bodyParser    = require('body-parser');
 var errorhandler  = require('errorhandler');
 var Redis         = require("ioredis");
 var redis         = new Redis();
+var ghost         = require("ghost");
+var path          = require("path");
 var server;
 var connected = function(){
   var host = server.address().address;
@@ -23,18 +25,27 @@ app.set("views", __dirname + "/public/");
 app.set("port", (process.env.PORT || process.argv[2] || 5000));
 app.use(express.static(__dirname + "/public/"));
 
-app.get("/", function(req, res){
-  res.render("index.html");
-})
+var options = {
+  config: path.join(__dirname, '/public/config.js')
+}
+
+// app.get("/", function(req, res){
+//   res.render("index.html");
+// })
 
 app.use("/api", require("./app/api"));
 
-app.get("*", function(req, res, next){
-  var err = new Error();
-  err.status = 404;
+ghost(options)
+  .then((ghostServer) => {
+    app.use(ghostServer.rootApp);
+    app.get("*", function(req, res, next){
+      var err = new Error();
+      err.status = 404;
 
-  res.render("index.html");
-})
+      res.render("index.html");
+    })
+    ghostServer.start(app);
+  })
 
-// server = app.listen(app.get("port"), connected);
-server = app.listen(app.get("port"),"216.70.82.169", connected);
+server = app.listen(app.get("port"), connected);
+// server = app.listen(app.get("port"),"216.70.82.169", connected);
