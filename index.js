@@ -29,23 +29,21 @@ var options = {
   config: path.join(__dirname, '/public/config.js')
 }
 
-// app.get("/", function(req, res){
-//   res.render("index.html");
-// })
+app.get("/portfolio", function(req, res){
+  res.render("main.html");
+})
 
 app.use("/api", require("./app/api"));
 
 ghost(options)
   .then((ghostServer) => {
-    app.use(ghostServer.rootApp);
-    app.get("*", function(req, res, next){
-      var err = new Error();
-      err.status = 404;
-
-      res.render("index.html");
-    })
+    app.use("/", ghostServer.rootApp);
     ghostServer.start(app);
   })
 
-server = app.listen(app.get("port"), connected);
-// server = app.listen(app.get("port"),"216.70.82.169", connected);
+if(process.env.NODE_ENV == "production"){
+  server = app.listen(app.get("port"),"216.70.82.169", connected);
+}
+else{
+  server = app.listen(app.get("port"), connected);
+}
